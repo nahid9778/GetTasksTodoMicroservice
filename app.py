@@ -8,11 +8,8 @@ import os
 # Fetch the connection string from the environment variable
 connection_string = os.environ.get('CONNECTION_STRING')
 
-# Check if the connection string is available
-if connection_string:
-    print(f"Connection String: {connection_string}")
-else:
-    print("Connection string not found in environment variables.")
+if not connection_string:
+    print("CONNECTION_STRING is not set.")
     
 app = FastAPI()
 

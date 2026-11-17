@@ -16,7 +16,10 @@ spec:
       - name: get-tasks
         env:
           - name: CONNECTION_STRING
-            value: "Driver={ODBC Driver 17 for SQL Server};Server=tcp:devopsinsiderssrv.database.windows.net,1433;Database=todoapp;Uid=devopsadmin;Pwd=P@ssw01rd@123;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;"                                          
+            valueFrom:
+              secretKeyRef:
+                name: dbdetails
+                key: CONNECTION_STRING
         image: devopsinsiders/get-tasks
         ports:
         - containerPort: 8000
